@@ -913,25 +913,15 @@ body {
 }
 /* Main transcript area — two-column: text + margin */
 .editor-transcript .ts-body {
-  display: grid;
-  grid-template-columns: 1fr 180px;
-  gap: 0;
-  padding: 2.5rem 0 2.5rem 2.5rem;
+  padding: 2.5rem;
 }
 @media (max-width: 640px) {
   .editor-transcript .ts-body {
-    grid-template-columns: 1fr;
     padding: 1.5rem 1.2rem;
-  }
-  .editor-transcript .margin-col { display: none; }
-  .editor-transcript .text-col {
-    padding-right: 0;
-    border-right: none;
   }
 }
 .editor-transcript .text-col {
-  padding-right: 2rem;
-  border-right: 1px dashed rgba(160,140,100,.3);
+  max-width: 100%;
 }
 .editor-transcript .margin-col {
   padding: 0 1rem;
@@ -985,13 +975,16 @@ body {
   margin: .3em 0;
   display: inline;
 }
-/* Inline annotation tag */
+/* Inline annotation — block aside after each deletion */
 .editor-transcript .pencil-inline {
   font-family: 'Caveat', cursive;
   font-size: 1rem;
   color: var(--crimson);
-  margin: 0 .3em;
-  white-space: nowrap;
+  display: block;
+  margin: .4em 0 .6em 1.5rem;
+  padding-left: .6rem;
+  border-left: 2px solid rgba(139,26,26,.3);
+  line-height: 1.4;
 }
 /* Margin annotation — positioned in the right column */
 .editor-transcript .margin-note-block {
