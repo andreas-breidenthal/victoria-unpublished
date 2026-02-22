@@ -1,0 +1,998 @@
+/* ═══════════════════════════════════════════════════════════════
+   Victoria Unpublished — Shared Stylesheet
+   Five styles: modern-book | archive-form | academic-paper |
+                clerk-journal | editor-transcript
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Inconsolata:wght@300;400;500&family=Special+Elite&family=Caveat:wght@400;500&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ─── PALETTE ──────────────────────────────────────────────────── */
+:root {
+  /* Core */
+  --cream:        #f4efdf;
+  --ivory:        #faf8f2;
+  --parchment:    #ede4cc;
+  --ink:          #1a1714;
+  --sepia:        #4a3c28;
+  --muted:        #7a6e5e;
+  --light:        #a09080;
+  --rule:         #cfc2a4;
+
+  /* Accent — crimson from the cover stamp */
+  --crimson:      #8b1a1a;
+  --crimson-pale: #f5eaea;
+
+  /* Nav / headers — charcoal */
+  --charcoal:     #252220;
+
+  /* Academic */
+  --slate:        #2a3040;
+
+  /* Shadows */
+  --shadow:       rgba(26,23,20,.13);
+  --shadow-deep:  rgba(26,23,20,.28);
+
+  /* Parchment page */
+  --pg-parchment: #f0e6ce;
+  --pg-ruled:     rgba(160,128,72,.18);
+  --pg-binding:   linear-gradient(to right, rgba(0,0,0,.12) 0%, transparent 5%);
+}
+
+/* ─── RESET & BASE ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* ─── SITE NAV (shared) ────────────────────────────────────────── */
+.site-nav {
+  padding: .9rem 4vw;
+  background: var(--charcoal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.site-nav a {
+  font-family: 'Inconsolata', monospace;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  text-decoration: none;
+  transition: color .2s;
+}
+.site-nav a:hover { color: #fff; }
+.site-nav .home   { color: rgba(255,255,255,.9); }
+.site-nav-links   { display: flex; gap: 1.8rem; }
+
+/* ─── CHAPTER NAV (shared) ─────────────────────────────────────── */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.nav-btn {
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  text-decoration: none;
+  border: 1px solid var(--crimson);
+  padding: .45rem 1.1rem;
+  transition: background .2s, color .2s;
+}
+.nav-btn:hover { background: var(--crimson); color: #fff; }
+.nav-centre {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  color: var(--light);
+  letter-spacing: .08em;
+  text-align: center;
+}
+.nav-centre a {
+  color: var(--light);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule);
+}
+.nav-centre a:hover { color: var(--crimson); }
+
+/* ─── FADE IN (shared) ─────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp .55s ease forwards;
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLE 1 — MODERN BOOK
+   Used by: index, foreword, afterword, chapters 1–26
+   ═══════════════════════════════════════════════════════════════ */
+
+.modern-book {
+  background: var(--ivory);
+}
+
+/* Index layout */
+.modern-book .book-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 4vw 6rem;
+}
+
+/* Cover block */
+.modern-book .cover-block {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+@media (max-width: 680px) {
+  .modern-book .cover-block {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .modern-book .cover-img {
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+  }
+}
+.modern-book .cover-img {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--cream);
+}
+.modern-book .cover-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Title block */
+.modern-book .title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  padding-top: .5rem;
+}
+.modern-book .series-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+.modern-book h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.modern-book .subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--sepia);
+}
+.modern-book .tagline {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--crimson);
+  font-weight: 400;
+}
+.modern-book .presented-by {
+  font-family: 'Inconsolata', monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.modern-book .divider {
+  width: 3rem;
+  height: 1px;
+  background: var(--rule);
+}
+.modern-book .about-text p {
+  font-size: .96rem;
+  color: var(--sepia);
+  margin-bottom: 1em;
+  line-height: 1.75;
+}
+.modern-book .start-btn {
+  display: inline-block;
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  text-decoration: none;
+  border: 1px solid var(--crimson);
+  padding: .55rem 1.4rem;
+  transition: background .2s, color .2s;
+  align-self: flex-start;
+}
+.modern-book .start-btn:hover { background: var(--crimson); color: #fff; }
+
+/* Contents list */
+.modern-book .contents-section { margin-bottom: 3rem; }
+.modern-book .contents-heading {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 1.2rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.modern-book .contents-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.modern-book .contents-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: .4rem 1rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid rgba(207,194,164,.4);
+  text-decoration: none;
+  align-items: baseline;
+  transition: background .15s;
+}
+.modern-book .contents-item:hover { background: rgba(139,26,26,.03); }
+.modern-book .item-num {
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  color: var(--light);
+  text-align: right;
+}
+.modern-book .item-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: var(--ink);
+  transition: color .15s;
+}
+.modern-book .contents-item:hover .item-title { color: var(--crimson); }
+.modern-book .item-sub {
+  font-size: .78rem;
+  font-style: italic;
+  color: var(--muted);
+  grid-column: 2;
+  margin-top: .1rem;
+}
+.modern-book .item-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .6rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--light);
+  border: 1px solid var(--rule);
+  padding: .1rem .4rem;
+  white-space: nowrap;
+}
+
+/* Footer */
+.modern-book .book-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.modern-book .book-footer a { color: var(--muted); text-decoration: none; }
+.modern-book .book-footer a:hover { color: var(--crimson); }
+
+/* Inner pages (foreword, afterword, chapters) */
+.modern-book .page-wrap {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 5rem 4vw 6rem;
+}
+.modern-book .page-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.modern-book .page-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.modern-book h1.page-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: .5rem;
+}
+.modern-book .byline {
+  font-size: .9rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+.modern-book .body-text p { margin-bottom: 1.4em; color: var(--sepia); }
+.modern-book .body-text p:first-child::first-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
+  font-weight: 600;
+  float: left;
+  line-height: .85;
+  margin: .08em .12em 0 0;
+  color: var(--ink);
+}
+.modern-book .body-text em  { font-style: italic; }
+.modern-book .closing {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  font-style: italic;
+  color: var(--muted);
+}
+.modern-book blockquote {
+  margin: 1.5em 0;
+  padding: .8em 1.5em;
+  border-left: 3px solid var(--rule);
+  font-style: italic;
+  color: var(--sepia);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLE 2 — ARCHIVE RECORD FORM
+   Used by: archivist's notes
+   ═══════════════════════════════════════════════════════════════ */
+
+.archive-form {
+  background: #e8e0d0;
+}
+.archive-form .page-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 4vw 5rem;
+}
+.archive-form .form-card {
+  background: var(--ivory);
+  box-shadow: 0 1px 4px var(--shadow), 0 6px 24px var(--shadow-deep);
+  border-top: 4px solid var(--charcoal);
+}
+.archive-form .form-header {
+  background: var(--charcoal);
+  padding: 1.4rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.archive-form .institution-name {
+  font-family: 'Inconsolata', monospace;
+  font-size: .9rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.archive-form .institution-sub {
+  font-family: 'Inconsolata', monospace;
+  font-size: .6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin-top: .2rem;
+}
+.archive-form .accession-badge {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.6);
+  text-align: right;
+}
+.archive-form .form-body {
+  padding: 2.5rem 2.5rem;
+}
+.archive-form .form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.archive-form .form-section:last-child { border-bottom: none; }
+.archive-form .section-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  margin-bottom: .8rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--charcoal);
+  display: inline-block;
+}
+.archive-form .field-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: .4rem .8rem;
+  margin-bottom: .5rem;
+  font-size: .9rem;
+}
+.archive-form .field-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .7rem;
+  letter-spacing: .06em;
+  color: var(--muted);
+  padding-top: .1em;
+}
+.archive-form .field-value {
+  color: var(--ink);
+  line-height: 1.5;
+}
+.archive-form .field-value em { font-style: italic; }
+.archive-form .form-prose {
+  font-size: .93rem;
+  color: var(--sepia);
+  line-height: 1.7;
+}
+.archive-form .form-prose p { margin-bottom: .8em; }
+.archive-form .form-prose ul {
+  list-style: none;
+  padding: 0;
+  margin: .5em 0;
+}
+.archive-form .form-prose ul li {
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: .3em;
+}
+.archive-form .form-prose ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--light);
+}
+.archive-form .form-prose strong { font-weight: 600; color: var(--ink); }
+.archive-form .stamp {
+  display: inline-block;
+  border: 2px solid var(--crimson);
+  padding: .4rem 1rem;
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  transform: rotate(-1.5deg);
+  margin-top: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLE 3 — ACADEMIC PAPER
+   Used by: The Queen Unpublished analysis
+   ═══════════════════════════════════════════════════════════════ */
+
+.academic-paper {
+  background: #f0ede6;
+}
+.academic-paper .paper-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 4vw 5rem;
+}
+.academic-paper .journal-banner {
+  background: var(--ivory);
+  border-bottom: 3px double var(--rule);
+  padding: 1.2rem 4vw;
+  text-align: center;
+}
+.academic-paper .journal-name {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.academic-paper .journal-detail {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  color: var(--light);
+  letter-spacing: .08em;
+  margin-top: .3rem;
+}
+.academic-paper .paper {
+  background: var(--ivory);
+  box-shadow: 0 1px 4px var(--shadow), 0 4px 20px var(--shadow);
+  margin: 3rem 0;
+  padding: 4rem 5rem;
+}
+@media (max-width: 640px) { .academic-paper .paper { padding: 2.5rem 2rem; } }
+.academic-paper .paper-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: .4rem;
+}
+.academic-paper .paper-subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.academic-paper hr.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 1.5rem 0;
+}
+.academic-paper .author-name {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .9rem;
+  font-weight: 600;
+}
+.academic-paper .author-affil {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .8rem;
+  color: var(--muted);
+  font-style: italic;
+  display: block;
+  margin-bottom: .2rem;
+}
+.academic-paper .abstract-block {
+  background: #ebe6da;
+  border-left: 3px solid var(--slate);
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+}
+.academic-paper .abstract-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: .6rem;
+}
+.academic-paper .abstract-text {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+.academic-paper .keywords-block { margin: .8rem 0 2.5rem; }
+.academic-paper .kw-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-right: .5rem;
+}
+.academic-paper .kw {
+  display: inline-block;
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  color: var(--muted);
+  background: #ebe6da;
+  border: 1px solid var(--rule);
+  padding: .1rem .5rem;
+  margin: .2rem .2rem 0 0;
+}
+.academic-paper .section-head {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.academic-paper .paper-body {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+}
+.academic-paper .paper-body p { margin-bottom: 1.1em; text-align: justify; hyphens: auto; }
+.academic-paper .paper-body em { font-style: italic; }
+.academic-paper sup {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .65rem;
+  color: var(--slate);
+  vertical-align: super;
+}
+.academic-paper .endnotes {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.academic-paper .endnotes-label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: .8rem;
+}
+.academic-paper .endnotes ol {
+  list-style: decimal;
+  padding-left: 1.5rem;
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.academic-paper .bib-section {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin: 1.2rem 0 .6rem;
+}
+.academic-paper .bib-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.academic-paper .bib-list li {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLE 4 — RECOVERED CLERK'S JOURNAL (Ashcombe)
+   Edwardian notebook: ruled lines, ink-grey, upright hand
+   ═══════════════════════════════════════════════════════════════ */
+
+.clerk-journal {
+  background: #d4cfc4;
+}
+.clerk-journal .page-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 3vw 5rem;
+}
+.clerk-journal .journal-card {
+  background: var(--pg-parchment);
+  box-shadow:
+    0 2px 6px var(--shadow),
+    0 10px 40px rgba(26,23,20,.25),
+    inset 3px 0 8px rgba(0,0,0,.06);
+  position: relative;
+  border-radius: 2px;
+}
+/* Binding shadow */
+.clerk-journal .journal-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 32px;
+  background: linear-gradient(to right, rgba(0,0,0,.14) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 2px 0 0 2px;
+}
+/* Ruled lines */
+.clerk-journal .journal-inner {
+  padding: 3rem 3.5rem 3rem 4rem;
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent calc(1.9em - 1px),
+      rgba(100,80,40,.15) calc(1.9em - 1px),
+      rgba(100,80,40,.15) 1.9em
+    );
+  background-size: 100% 1.9em;
+}
+.clerk-journal .journal-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: .6rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.clerk-journal .journal-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(100,80,40,.2);
+}
+.clerk-journal .spine-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--sepia);
+  margin-bottom: .3rem;
+}
+.clerk-journal .spine-dates {
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  letter-spacing: .06em;
+}
+/* Journal entry */
+.clerk-journal .entry {
+  margin-bottom: 1.6em;
+  line-height: 1.9em; /* lock to ruled lines */
+}
+.clerk-journal .entry-date {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: .95rem;
+  color: var(--ink);
+  font-style: italic;
+  margin-right: .4em;
+}
+.clerk-journal .entry-text {
+  font-family: 'Newsreader', serif;
+  font-size: 1rem;
+  color: #2a2218;
+  display: inline;
+}
+/* Inline OMIT annotations within journal text */
+.clerk-journal .margin-note {
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  color: var(--crimson);
+  background: var(--crimson-pale);
+  padding: .05em .35em;
+  border-radius: 2px;
+  margin: 0 .2em;
+  white-space: nowrap;
+}
+/* The 27 July discovery block */
+.clerk-journal .discovery-block {
+  margin: 1.5em 0;
+  padding: 1em 1.2em;
+  background: rgba(139,26,26,.04);
+  border-left: 2px solid var(--crimson);
+}
+.clerk-journal .discovery-block p {
+  font-family: 'Newsreader', serif;
+  font-size: 1rem;
+  color: #2a2218;
+  margin-bottom: .6em;
+  line-height: 1.9em;
+}
+.clerk-journal .discovery-block ul {
+  list-style: none;
+  padding: 0;
+  margin: .5em 0;
+}
+.clerk-journal .discovery-block ul li {
+  font-family: 'Inconsolata', monospace;
+  font-size: .82rem;
+  color: var(--crimson);
+  padding-left: 1.2em;
+  position: relative;
+  margin-bottom: .4em;
+  line-height: 1.6;
+}
+.clerk-journal .discovery-block ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+}
+/* No-more-entries marker */
+.clerk-journal .entry-end {
+  font-family: 'Inconsolata', monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--light);
+  text-align: center;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.clerk-journal .entry-end::before,
+.clerk-journal .entry-end::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(100,80,40,.2);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLE 5 — EDITOR'S TRANSCRIPT WITH ANNOTATIONS
+   Used by: Accession Typescript
+   Typewritten body + pencil marginalia
+   ═══════════════════════════════════════════════════════════════ */
+
+.editor-transcript {
+  background: #d8d2c4;
+}
+.editor-transcript .page-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 3vw 5rem;
+}
+.editor-transcript .ts-card {
+  background: #f8f5ec;
+  box-shadow: 0 2px 8px var(--shadow), 0 12px 40px var(--shadow-deep);
+  position: relative;
+}
+.editor-transcript .ts-card::after {
+  content: '';
+  position: absolute;
+  right: -8px; top: 8px; bottom: -8px;
+  width: 8px;
+  background: linear-gradient(to right, rgba(0,0,0,.18), transparent);
+  pointer-events: none;
+}
+.editor-transcript .ts-header {
+  background: var(--charcoal);
+  padding: 1.2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .8rem;
+}
+.editor-transcript .ts-title {
+  font-family: 'Inconsolata', monospace;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.9);
+}
+.editor-transcript .ts-ref {
+  font-family: 'Inconsolata', monospace;
+  font-size: .62rem;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.45);
+}
+/* Main transcript area — two-column: text + margin */
+.editor-transcript .ts-body {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 0;
+  padding: 2.5rem 0 2.5rem 2.5rem;
+}
+@media (max-width: 640px) {
+  .editor-transcript .ts-body {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  .editor-transcript .margin-col { display: none; }
+}
+.editor-transcript .text-col {
+  padding-right: 2rem;
+  border-right: 1px dashed rgba(160,140,100,.3);
+}
+.editor-transcript .margin-col {
+  padding: 0 1rem;
+  position: relative;
+}
+/* Folio markers */
+.editor-transcript .folio {
+  font-family: 'Inconsolata', monospace;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  color: var(--crimson);
+  border: 1px solid var(--crimson);
+  display: inline-block;
+  padding: .1rem .4rem;
+  margin: 1.2rem 0 .8rem;
+  border-radius: 2px;
+}
+/* Typewritten text */
+.editor-transcript .ts-entry {
+  margin-bottom: 1.4em;
+}
+.editor-transcript .ts-date {
+  font-family: 'Special Elite', serif;
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: .3em;
+  display: block;
+}
+.editor-transcript .ts-text {
+  font-family: 'Special Elite', serif;
+  font-size: .9rem;
+  color: #1e1a14;
+  line-height: 1.85;
+  text-align: justify;
+}
+/* Struck-out deletion: strikethrough + slightly faded */
+.editor-transcript .deleted {
+  text-decoration: line-through;
+  text-decoration-color: rgba(26,23,20,.5);
+  color: #5a5040;
+  font-family: 'Special Elite', serif;
+}
+/* Deletion block wrapper */
+.editor-transcript .deletion-block {
+  background: rgba(139,26,26,.04);
+  border-left: 2px solid rgba(139,26,26,.3);
+  padding: .3em .6em;
+  margin: .3em 0;
+  display: inline;
+}
+/* Inline annotation tag */
+.editor-transcript .pencil-inline {
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  color: var(--crimson);
+  margin: 0 .3em;
+  white-space: nowrap;
+}
+/* Margin annotation — positioned in the right column */
+.editor-transcript .margin-note-block {
+  font-family: 'Caveat', cursive;
+  font-size: .95rem;
+  color: var(--crimson);
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+  padding-left: .4rem;
+  border-left: 1px solid rgba(139,26,26,.25);
+}
+.editor-transcript .margin-note-block .omit-stamp {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+/* {pencil del} marker */
+.editor-transcript .pencil-del {
+  font-family: 'Caveat', cursive;
+  font-size: .82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 .2em;
+}
