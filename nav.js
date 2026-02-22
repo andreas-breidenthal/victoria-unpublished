@@ -8,7 +8,6 @@
     <a href="../andreas-breidenthal/index.html" class="home">Andreas Breidenthal</a>
     <div class="site-nav-links">
       <a href="index.html">Contents</a>
-      <a href="https://github.com/andreas-breidenthal/victoria-unpublished" target="_blank" rel="noopener">GitHub</a>
     </div>
   </nav>`;
 
