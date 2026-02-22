@@ -884,6 +884,14 @@ body {
   flex-wrap: wrap;
   gap: .8rem;
 }
+@media (max-width: 640px) {
+  .editor-transcript .ts-header {
+    padding: 1rem 1.2rem;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .editor-transcript .ts-header .ts-ref { text-align: left !important; }
+}
 .editor-transcript .ts-title {
   font-family: 'Inconsolata', monospace;
   font-size: .82rem;
@@ -907,9 +915,13 @@ body {
 @media (max-width: 640px) {
   .editor-transcript .ts-body {
     grid-template-columns: 1fr;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.2rem;
   }
   .editor-transcript .margin-col { display: none; }
+  .editor-transcript .text-col {
+    padding-right: 0;
+    border-right: none;
+  }
 }
 .editor-transcript .text-col {
   padding-right: 2rem;
