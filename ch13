@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Terms &middot; Victoria Unpublished</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="nav.js"></script>
+</head>
+<body class="modern-book">
+  <div id="site-nav"></div>
+
+  <div class="page-wrap fade-in">
+    <div class="page-label">Victoria Unpublished &middot; Chapter 13</div>
+    <h1 class="page-title">The Terms</h1>
+    <p class="byline">Chapter 13</p>
+    <div class="body-text">
+<p>We met again in a smaller room with worse air and better coffee. I placed a single sheet between us. She didn't touch it.</p>
+<p>&ldquo;Let's save time,&rdquo; I said. &ldquo;I'll take the brief &mdash; on five conditions.&rdquo;</p>
+<p>&ldquo;One. Scope: I'll target a documentary hit that stitches the 1838&ndash;1840 seam &mdash; bill of sale, ledger entry, letter, rail or shipping docket, framer's label, presentation record. I'll provide a short chain-of-custody narrative for counsel and lenders.&rdquo; &ldquo;Good.&rdquo;</p>
+<p>&ldquo;Two. Governance: I work alone. Fortnightly written updates. Chain-of-custody logged. No promises on miracles.&rdquo; &ldquo;Expected.&rdquo;</p>
+<p>&ldquo;Three. Time and money: eight weeks. Day rate and expenses. Success fee if the decisive document is obtained or licensed in time for the lenders' packet.&rdquo; &ldquo;Sign-off is easy,&rdquo; she said.</p>
+<p>&ldquo;Four. Scope of findings: anything I turn up that falls outside the portrait's chain &mdash; unrelated provenance, adjacent records &mdash; stays mine. I'll flag it; I won't hand it over.&rdquo; A pause. &ldquo;We can live with that.&rdquo;</p>
+<p>&ldquo;Five. My own project: I'm running a parallel inquiry &mdash; unrelated, private, Victorian-Edwardian. No conflict with your work. No use of your resources. You don't ask about it; I don't mention it.&rdquo; She held my eye for a long moment. &ldquo;Agreed.&rdquo;</p>
+<p>She signed where she needed to sign. I signed where I needed to sign. Mercer witnessed without being asked.</p>
+<p>&ldquo;One question,&rdquo; she said, as she capped her pen. &ldquo;The parallel inquiry. Is it connected to any of our lenders?&rdquo; &ldquo;No,&rdquo; I said. That part was true. She nodded. &ldquo;Then start Monday.&rdquo;</p>
+    </div>
+
+    <nav class="chapter-nav">
+      <a href="ch12.html" class="nav-btn">&larr; The Client</a>
+      <div class="nav-centre"><a href="index.html">&uarr; Contents</a></div>
+      <a href="ch14.html" class="nav-btn">The Job &rarr;</a>
+    </nav>
+  </div>
+</body>
+</html>
