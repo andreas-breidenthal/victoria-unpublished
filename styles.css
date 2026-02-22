@@ -865,11 +865,13 @@ body {
   max-width: 760px;
   margin: 0 auto;
   padding: 3rem 3vw 5rem;
+  overflow-x: hidden;
 }
 .editor-transcript .ts-card {
   background: #f8f5ec;
   box-shadow: 0 2px 8px var(--shadow), 0 12px 40px var(--shadow-deep);
   position: relative;
+  overflow: hidden;
 }
 .editor-transcript .ts-card::after {
   content: '';
@@ -964,7 +966,9 @@ body {
   font-size: .9rem;
   color: #1e1a14;
   line-height: 1.85;
-  text-align: justify;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 /* Struck-out deletion: strikethrough + slightly faded */
 .editor-transcript .deleted {
