@@ -765,7 +765,7 @@ body {
 /* Journal entry */
 .clerk-journal .entry {
   margin-bottom: 1.6em;
-  line-height: 1.9em; /* lock to ruled lines */
+  line-height: 1.75;
 }
 .clerk-journal .entry-date {
   font-family: 'Newsreader', serif;
@@ -780,6 +780,7 @@ body {
   font-size: 1rem;
   color: #2a2218;
   display: inline;
+  line-height: inherit;
 }
 /* Inline OMIT annotations within journal text */
 .clerk-journal .margin-note {
@@ -789,8 +790,11 @@ body {
   background: var(--crimson-pale);
   padding: .05em .35em;
   border-radius: 2px;
-  margin: 0 .2em;
-  white-space: nowrap;
+  margin: .1em .2em;
+  white-space: normal;
+  display: inline-block;
+  max-width: 100%;
+  word-break: break-word;
 }
 /* The 27 July discovery block */
 .clerk-journal .discovery-block {
@@ -804,7 +808,7 @@ body {
   font-size: 1rem;
   color: #2a2218;
   margin-bottom: .6em;
-  line-height: 1.9em;
+  line-height: 1.75;
 }
 .clerk-journal .discovery-block ul {
   list-style: none;
