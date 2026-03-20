@@ -32,6 +32,13 @@
   --shadow:       rgba(26,23,20,.13);
   --shadow-deep:  rgba(26,23,20,.28);
 
+  /* ── Universal component aliases ── */
+  --paper: var(--ivory);
+  --aged:  var(--cream);
+  --rust:  var(--crimson);
+  --gold:  var(--muted);
+  --faded: var(--light);
+
   /* Parchment page */
   --pg-parchment: #f0e6ce;
   --pg-ruled:     rgba(160,128,72,.18);
@@ -59,8 +66,10 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: .8rem;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
 .site-nav a {
@@ -320,7 +329,7 @@ body {
 .modern-book .page-wrap {
   max-width: 660px;
   margin: 0 auto;
-  padding: 5rem 4vw 6rem;
+  padding: 7rem 4vw 6rem;
 }
 .modern-book .page-label {
   font-family: 'Inconsolata', monospace;
@@ -391,7 +400,7 @@ body {
 .archive-form .page-wrap {
   max-width: 780px;
   margin: 0 auto;
-  padding: 3rem 4vw 5rem;
+  padding: 7rem 4vw 5rem;
 }
 .archive-form .form-card {
   background: var(--ivory);
@@ -517,7 +526,7 @@ body {
 .academic-paper .paper-wrap {
   max-width: 820px;
   margin: 0 auto;
-  padding: 0 4vw 5rem;
+  padding: 4rem 4vw 5rem;
 }
 .academic-paper .journal-banner {
   background: var(--ivory);
@@ -698,7 +707,7 @@ body {
 .clerk-journal .page-wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: 3rem 3vw 5rem;
+  padding: 7rem 3vw 5rem;
 }
 .clerk-journal .journal-card {
   background: var(--pg-parchment);
@@ -864,7 +873,7 @@ body {
 .editor-transcript .page-wrap {
   max-width: 760px;
   margin: 0 auto;
-  padding: 3rem 3vw 5rem;
+  padding: 7rem 3vw 5rem;
   overflow-x: hidden;
 }
 .editor-transcript .ts-card {
