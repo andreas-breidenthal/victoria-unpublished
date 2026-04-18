@@ -1,8 +1,11 @@
 ![Victoria Unpublished cover](images/victoria-unpublished-cover.webp)
 
 # Victoria Unpublished
-**Does fiction restore what history omits?**
-A Recovered Archive, 1837 & 1909–1913
+
+**_Does fiction restore what history omits?_**
+
+*A Recovered Archive, 1837 & 1909–1913*
+
 Presented by Andreas Breidenthal
 
 ---
